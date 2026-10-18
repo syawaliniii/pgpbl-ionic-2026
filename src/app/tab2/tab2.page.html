@@ -1,17 +1,196 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Jadwal Kuliah
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>Senin</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Agama Islam</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>09.00 - 10.40</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Agus Kurniawan, S.T., M.T., Ph.D.</ion-col>
+            </ion-row>
+        </ion-grid>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Pancasila</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>11.15 - 12.55</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Sri Yulita Pramulia Panani, S.Fil., M.Phil.</ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Kewarganegaraan</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>13.00 - 14.40</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Prof. Dr. Armaidy Armawi, M.Si.</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="second">
+    <ion-item slot="header" color="light">
+      <ion-label>Selasa</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Praktikum PGPBL</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>11.00 - 13.00</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Raden Muhammad Anshori, S.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="third">
+    <ion-item slot="header" color="light">
+      <ion-label>Rabu</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Ide Kreatif dan Kewirausahaan</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>11:10 - 12:50</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Dr. Barandi Sapta Widartono, S.Si., M.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Praktikum SDGL</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>13.00 - 16.00</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Ade Febri Sandhini Putri, S.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="fourth">
+    <ion-item slot="header" color="light">
+      <ion-label>Kamis</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Metodologi Penelitian</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>11:10 - 12:50</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Dr. Like Indrawati, S.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Praktikum PPK</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>13.00 - 15.00</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Dr. Like Indrawati, S.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+  </ion-accordion>
+
+  <ion-accordion value="fifth">
+    <ion-item slot="header" color="light">
+      <ion-label>Jumat</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content"><ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Bahasa Indonesia</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>07:15 - 08:55</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Arum Rindu Sekar Kasih</ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>Mata Kuliah:</ion-col>
+            <ion-col>Praktikum ASDA</ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>Jam:</ion-col>
+            <ion-col>13.00 - 15.00</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Dosen:</ion-col>
+            <ion-col>Dr. Like Indrawati, S.Si., M.Sc.</ion-col>
+            </ion-row>
+        </ion-grid>
+      </div>
+  </ion-accordion>
+
+</ion-accordion-group>
 </ion-content>

@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      <ion-icon name="person-circle-outline"></ion-icon> Profil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Anissa Syawalinii</ion-card-title>
+    <ion-card-subtitle>24/544263/SV/25365</ion-card-subtitle>
+  </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card-content>
+
+    <ion-avatar>
+      <img alt ="Silhouette of a person's head" src="assets/icon/Profile.jpg">
+    </ion-avatar>
+
+    <ion-text color="dark">
+      Kelas : B
+      <br>
+      Departemen Teknologi Kebumian
+      <br>
+      Universitas Gadjah Mada
+      <br>
+    </ion-text>
+
+  </ion-card-content>
+</ion-card>
 </ion-content>

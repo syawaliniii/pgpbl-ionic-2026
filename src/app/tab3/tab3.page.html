@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Tambahan Mata Kuliah
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <ion-card>
+ <ion-card-content>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+ <ion-item>
+ <ion-input label="Mata kuliah" placeholder="Isikan nama mata kuliah"></ion-input>
+ </ion-item>
+
+ <ion-item>
+ <ion-input label="Jam" placeholder="Isikan jam kuliah"></ion-input>
+ </ion-item>
+
+ <ion-item>
+ <ion-input label="Dosen" placeholder="Isikan dosen pengampu"></ion-input>
+ </ion-item>
+
+ <br>
+ <ion-button>Simpan</ion-button>
+ </ion-card-content>
+ </ion-card>
 </ion-content>
