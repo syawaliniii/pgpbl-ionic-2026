@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/maps"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Point</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="loading" class="loading-message">
+    Memuat data point...
+  </div>
+
+  <div *ngIf="!loading" class="edit-container">
+
+    <div id="edit-map"></div>
+
+    <p class="map-hint">
+      Geser marker atau ketuk peta untuk mengubah posisi.
+    </p>
+
+    <form (ngSubmit)="updatePoint()">
+
+      <ion-item>
+        <ion-label position="stacked">Nama Point</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Masukkan nama point"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Koordinat</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="coordinates"
+          name="coordinates"
+          placeholder="Latitude, longitude"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Deskripsi</ion-label>
+        <ion-textarea
+          [(ngModel)]="description"
+          name="description"
+          placeholder="Masukkan deskripsi point"
+          rows="3">
+        </ion-textarea>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        class="save-button"
+        [disabled]="!key">
+        Simpan Perubahan
+      </ion-button>
+
+    </form>
+  </div>
+</ion-content>

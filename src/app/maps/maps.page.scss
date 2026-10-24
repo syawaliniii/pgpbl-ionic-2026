@@ -1,4 +1,61 @@
-ion-icon {
-  font-size: 24px;
-  color: var(--ion-color-Black);
+/* Tampilan isi popup Leaflet */
+:host ::ng-deep .point-popup {
+  min-width: 145px;
+  font-family: Arial, sans-serif;
+}
+
+:host ::ng-deep .point-popup-title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #222;
+}
+
+:host ::ng-deep .point-popup-description {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #444;
+}
+
+/* Posisi tombol */
+:host ::ng-deep .point-popup-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Bentuk tombol */
+:host ::ng-deep .point-popup-actions .popup-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 5px;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* Ikon Ionic */
+:host ::ng-deep .point-popup-actions ion-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: #fff;
+  vertical-align: middle;
+}
+
+/* Tombol Edit */
+:host ::ng-deep .point-popup-actions .edit-link {
+  background-color: #1976d2;
+}
+
+/* Tombol Delete */
+:host ::ng-deep .point-popup-actions .delete-link {
+  background-color: #d32f2f;
 }

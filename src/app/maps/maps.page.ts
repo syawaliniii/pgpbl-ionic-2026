@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import * as L from 'leaflet';
 import { DataService } from '../data.service';
 
@@ -13,6 +14,7 @@ export class MapsPage implements OnInit {
   map!: L.Map;
 
   private dataService = inject(DataService);
+  private router = inject(Router);
 
   constructor() { }
 
@@ -53,7 +55,7 @@ export class MapsPage implements OnInit {
         // Menampilkan point dari Firebase
         this.loadPoints();
 
-      });
+      }, 100);
 
     }
 
@@ -84,13 +86,107 @@ export class MapsPage implements OnInit {
           ).addTo(this.map);
 
           marker.bindPopup(`
-            <b>${point.name}</b><br>
-            ${point.description || ''}
+            <div class="point-popup">
+              <b class="point-popup-title">${point.name}</b>
+
+              <div class="point-popup-description">
+                ${point.description || ''}
+              </div>
+
+              <div class="point-popup-actions">
+                <a href="#" class="popup-action edit-link" data-key="${key}">
+                  <ion-icon name="create-outline"></ion-icon>
+                  <span>Edit</span>
+                </a>
+
+                <a href="#" class="popup-action delete-link" data-key="${key}">
+                  <ion-icon name="trash-outline"></ion-icon>
+                  <span>Delete</span>
+                </a>
+              </div>
+            </div>
           `);
 
         }
 
       }
+
+      this.map.on('popupopen', (e) => {
+
+        const popup = e.popup;
+        const popupElement = popup.getElement();
+
+        const deleteLink =
+          popupElement?.querySelector('.delete-link');
+
+        if (deleteLink) {
+
+          deleteLink.addEventListener('click', async (event) => {
+
+            event.preventDefault();
+
+            const key = (event.currentTarget as HTMLElement)
+              .dataset['key'];
+
+            if (key) {
+
+              const confirmed = window.confirm(
+                'Apakah kamu yakin ingin menghapus point ini?'
+              );
+
+              if (!confirmed) {
+                return;
+              }
+
+              try {
+
+                await this.deletePoint(key, popup.getLatLng());
+
+              } catch (error) {
+
+                console.error(
+                  'Gagal menghapus point dari Firebase:',
+                  error
+                );
+
+                alert('Point gagal dihapus.');
+
+              }
+
+            }
+
+          });
+
+        }
+
+        const editLink =
+          popupElement?.querySelector('.edit-link');
+
+        if (editLink) {
+
+          editLink.addEventListener('click', (event) => {
+
+            event.preventDefault();
+
+            const key = (event.currentTarget as HTMLElement)
+              .dataset['key'];
+
+            if (key) {
+
+              this.router.navigate(
+                ['/tabs/editpoint'],
+                {
+                  state: { key: key }
+                }
+              );
+
+            }
+
+          });
+
+        }
+
+      });
 
     } catch (error) {
 
@@ -98,6 +194,33 @@ export class MapsPage implements OnInit {
         'Gagal mengambil data point dari Firebase:',
         error
       );
+
+    }
+
+  }
+
+  async deletePoint(
+    key: string,
+    latLng: L.LatLng | undefined
+  ) {
+
+    await this.dataService.deletePoint(key);
+
+    if (latLng) {
+
+      this.map.eachLayer((layer) => {
+
+        if (layer instanceof L.Marker) {
+
+          if (layer.getLatLng().equals(latLng)) {
+
+            this.map.removeLayer(layer);
+
+          }
+
+        }
+
+      });
 
     }
 

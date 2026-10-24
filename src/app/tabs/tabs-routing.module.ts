@@ -37,6 +37,13 @@ const routes: Routes = [
       },
 
       {
+        path: 'editpoint',
+        loadChildren: () =>
+          import('../editpoint/editpoint.module')
+            .then(m => m.EditpointPageModule)
+    },
+
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
